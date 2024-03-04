@@ -26,3 +26,10 @@ spec:
             cpu: "250m"
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - name: hello-case-pvc
+          mountPath: /application/log
+      volumes:
+      - name: hello-case-pvc
+        persistentVolumeClaim:
+          claimName: hello-case-pvc
