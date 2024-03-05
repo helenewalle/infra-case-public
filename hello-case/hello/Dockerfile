@@ -1,4 +1,5 @@
 FROM nginx:stable-bullseye
+RUN mkdir -p /tmp/nginx && chmod -R 777 /tmp/nginx
 
 USER root
 
