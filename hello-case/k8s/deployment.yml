@@ -29,6 +29,9 @@ spec:
         volumeMounts:
         - name: hello-case-pvc
           mountPath: /application/log
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
       volumes:
       - name: hello-case-pvc
         persistentVolumeClaim:
