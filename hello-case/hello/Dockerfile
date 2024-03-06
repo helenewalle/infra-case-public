@@ -2,7 +2,7 @@ FROM nginx:stable-bullseye
 RUN mkdir -p /tmp/nginx && chmod -R 777 /tmp/nginx
 RUN mkdir -p /application/dist && chmod -R 777 /application/dist
 
-USER root
+#USER root
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /application/dist
@@ -20,4 +20,5 @@ RUN chown -R nginx:nginx /app /var/cache/nginx
 EXPOSE 80
 EXPOSE 443
 
+USER nginx
 CMD ["nginx", "-g", "daemon off;", "-p", "$PWD"]
