@@ -1,10 +1,11 @@
 FROM nginx:stable-bullseye
 RUN mkdir -p /tmp/nginx && chmod -R 777 /tmp/nginx
+RUN mkdir -p /application/dist && chmod -R 777 /application/dist
 
 USER root
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY index.html .
+COPY index.html /application/dist
 
 RUN apt-get update && apt-get install -y  \
     bash=5.1-2+deb11u1 \
